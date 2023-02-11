@@ -1,3 +1,3 @@
 # repomuic
-# Some random line I wrote on my local computer
-# This is a line from RStudio
+Some random line I wrote on my local computer
+This is a line from RStudio
