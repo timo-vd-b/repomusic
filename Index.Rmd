@@ -17,22 +17,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is a list:
 
- - hi
- - second
- - joe
+-   hi
+-   second
+-   joe
 
 ```{r}
 library(tidyverse)
 library(spotifyr)
 ```
 
-
 ```{r}
 old_eminem <- get_playlist_audio_features("", "5PBz3jgj5iuA3PiuTVGsxG")
 new_eminem <- get_playlist_audio_features("", "0v811iPSKNOI5mbNaOWz6D")
 mix_eminem <- get_playlist_audio_features("", "4HhyZv3oqk7GDyHIQ3JqAs")
 ```
-
 
 ```{r}
 old_eminem_stats <- old_eminem |>
@@ -105,6 +103,7 @@ ggplot(all_eminem, aes(x= speechiness))+
   geom_histogram(binwidth = 0.1)+
   facet_wrap(~category)
 ```
+
 ```{r}
 ggplot(all_eminem, aes(x= track.popularity))+
   geom_histogram(binwidth = 5)+
@@ -120,7 +119,7 @@ ggplot(all_eminem, aes(x= energy, y = speechiness, color = category))+
 all_eminem_stats <- bind_rows(old_eminem_stats |> mutate(category = "Old Eminem"), new_eminem_stats |> mutate(category = "New Eminem"))
 ```
 
-### One first good working page 
+### One first good working page
 
 ```{r}
 ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = category, size = track.popularity))+
@@ -130,7 +129,7 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = catego
   ggtitle("The change in valence of Eminem's music over the years")
 ```
 
-*** test for text? 
+\*\*\* test for text?
 
 ### Everything else
 
@@ -146,15 +145,8 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = ca
   theme(axis.text.x = element_text(angle =-90))
 ```
 
-
 ```{r}
 first_plot <- ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
   geom_point()+
   theme(axis.text.x = element_text(angle =-90))
 ```
-
-
-
-
-
-
