@@ -1,0 +1,160 @@
+---
+title: "PORTFOLIO"
+author: "Timo"
+date: "`r Sys.Date()`"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Welcome to musicology
+
+#### Even smaller heading
+
+This is a list:
+
+ - hi
+ - second
+ - joe
+
+```{r}
+library(tidyverse)
+library(spotifyr)
+```
+
+
+```{r}
+old_eminem <- get_playlist_audio_features("", "5PBz3jgj5iuA3PiuTVGsxG")
+new_eminem <- get_playlist_audio_features("", "0v811iPSKNOI5mbNaOWz6D")
+mix_eminem <- get_playlist_audio_features("", "4HhyZv3oqk7GDyHIQ3JqAs")
+```
+
+
+```{r}
+old_eminem_stats <- old_eminem |>
+  summarise(
+    mean_speechiness = mean(speechiness),
+    mean_acousticness = mean(acousticness),
+    mean_liveness = mean(liveness),
+    sd_speechiness = sd(speechiness),
+    sd_acousticness = sd(acousticness),
+    sd_liveness = sd(liveness),
+    median_speechiness = median(speechiness),
+    median_acousticness = median(acousticness),
+    median_liveness = median(liveness),
+    mad_speechiness = mad(speechiness),
+    mad_acousticness = mad(acousticness),
+    mad_liveness = mad(liveness),
+    mean_dancebility = mean(danceability),
+    mean_track_popularity = mean(track.popularity),
+    mean_loudness = mean(loudness),
+    mean_energy = mean(energy)
+  )
+```
+
+```{r}
+new_eminem_stats <-new_eminem |>
+  summarise(
+    mean_speechiness = mean(speechiness),
+    mean_acousticness = mean(acousticness),
+    mean_liveness = mean(liveness),
+    sd_speechiness = sd(speechiness),
+    sd_acousticness = sd(acousticness),
+    sd_liveness = sd(liveness),
+    median_speechiness = median(speechiness),
+    median_acousticness = median(acousticness),
+    median_liveness = median(liveness),
+    mad_speechiness = mad(speechiness),
+    mad_acousticness = mad(acousticness),
+    mad_liveness = mad(liveness),
+    mean_dancebility = mean(danceability),
+    mean_track_popularity = mean(track.popularity),
+    mean_loudness = mean(loudness),
+    mean_energy = mean(energy)
+  )
+```
+
+```{r}
+mix_eminem_stats <-mix_eminem |>
+  summarise(
+    mean_speechiness = mean(speechiness),
+    mean_acousticness = mean(acousticness),
+    mean_liveness = mean(liveness),
+    sd_speechiness = sd(speechiness),
+    sd_acousticness = sd(acousticness),
+    sd_liveness = sd(liveness),
+    median_speechiness = median(speechiness),
+    median_acousticness = median(acousticness),
+    median_liveness = median(liveness),
+    mad_speechiness = mad(speechiness),
+    mad_acousticness = mad(acousticness),
+    mad_liveness = mad(liveness)
+  )
+```
+
+```{r}
+all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_eminem |> mutate(category = "New Eminem"))
+```
+
+```{r}
+ggplot(all_eminem, aes(x= speechiness))+
+  geom_histogram(binwidth = 0.1)+
+  facet_wrap(~category)
+```
+```{r}
+ggplot(all_eminem, aes(x= track.popularity))+
+  geom_histogram(binwidth = 5)+
+  facet_wrap(~category)
+```
+
+```{r}
+ggplot(all_eminem, aes(x= energy, y = speechiness, color = category))+
+  geom_point()
+```
+
+```{r}
+all_eminem_stats <- bind_rows(old_eminem_stats |> mutate(category = "Old Eminem"), new_eminem_stats |> mutate(category = "New Eminem"))
+```
+
+### One first good working page 
+
+```{r}
+ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = category, size = track.popularity))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle =-90),
+        axis.title.x = element_blank())+
+  ggtitle("The change in valence of Eminem's music over the years")
+```
+
+***test for text?
+
+### Everything else
+
+```{r}
+ggplot(all_eminem, aes(x = track.album.name, y = speechiness, color = category, size = track.popularity))+
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle =-90))
+```
+
+```{r}
+ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle =-90))
+```
+
+
+```{r}
+first_plot <- ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
+  geom_point()+
+  theme(axis.text.x = element_text(angle =-90))
+```
+
+
+
+
+
+
