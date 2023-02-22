@@ -19,6 +19,7 @@ This is a list:
 
 -   hi
 -   second
+-   third
 
 ```{r}
 library(tidyverse)
@@ -156,6 +157,8 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = ca
   geom_point()+
   theme(axis.text.x = element_text(angle =-90))
 ```
+
+### Make a last page
 
 ```{r}
 first_plot <- ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
