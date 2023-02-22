@@ -19,7 +19,6 @@ This is a list:
 
 -   hi
 -   second
--   joe
 
 ```{r}
 library(tidyverse)
