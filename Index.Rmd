@@ -130,7 +130,7 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = catego
   ggtitle("The change in valence of Eminem's music over the years")
 ```
 
-***test for text?
+*** test for text? 
 
 ### Everything else
 
