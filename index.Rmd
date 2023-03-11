@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Newest tab first
+# Newest tab first
 
 
 ```{r, echo=FALSE}
@@ -98,7 +98,7 @@ all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_emine
 
 Hi 
 
-### Welcome to musicology
+# Welcome to musicology
 
 #### Even smaller heading
 
@@ -136,7 +136,7 @@ all_eminem_stats <- bind_rows(old_eminem_stats |> mutate(category = "Old Eminem"
 ```
 
 
-### One first good working page
+# One first good working page
 
 
 ```{r, echo=FALSE}
@@ -151,7 +151,7 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = catego
 test for text?
 
 
-### Everything else
+# Everything else
 
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x = track.album.name, y = speechiness, color = category, size = track.popularity))+
@@ -165,7 +165,7 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = ca
   theme(axis.text.x = element_text(angle =-90))
 ```
 
-### Make a last page
+# Make a last page
 
 ```{r, echo=FALSE}
 first_plot <- ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
