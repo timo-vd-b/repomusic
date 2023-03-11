@@ -98,7 +98,13 @@ all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_emine
 
 Hi 
 
-# Welcome to musicology
+# Overview {.sidebar}
+
+This is a sidebar to give an overview of the story.
+
+For now its just text; input controls are next.
+
+# Welcome to musicology {data-navmenu="Random plots"}
 
 #### Even smaller heading
 
@@ -109,21 +115,23 @@ This is a list:
 -   third
 -   fourth
 
+# Histograms {data-navmenu="Random plots".storyboard}
 
-
+### Speechiness
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x= speechiness))+
   geom_histogram(binwidth = 0.1)+
   facet_wrap(~category)
 ```
 
-
+### Popularity
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x= track.popularity))+
   geom_histogram(binwidth = 5)+
   facet_wrap(~category)
 ```
 
+# Scatterplot {data-navmenu="Random plots"}
 
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x= energy, y = speechiness, color = category))+
