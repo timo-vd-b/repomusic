@@ -11,22 +11,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-### Newest tab first
-
-Hi 
-
-### Welcome to musicology
-
-#### Even smaller heading
-
-This is a list:
-
--   hi
--   second
--   third
--   fourth
-
 ```{r}
 library(tidyverse)
 library(spotifyr)
@@ -108,6 +92,22 @@ mix_eminem_stats <-mix_eminem |>
 ```{r}
 all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_eminem |> mutate(category = "New Eminem"))
 ```
+
+### Newest tab first
+
+Hi 
+
+### Welcome to musicology
+
+#### Even smaller heading
+
+This is a list:
+
+-   hi
+-   second
+-   third
+-   fourth
+
 
 
 ```{r}
