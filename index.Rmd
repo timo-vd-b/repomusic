@@ -5,6 +5,9 @@ date: "`r Sys.Date()`"
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
+    theme:
+      version: 4
+      bootswatch: minty
 ---
 
 ```{r setup, include=FALSE}
