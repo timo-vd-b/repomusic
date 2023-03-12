@@ -47,7 +47,8 @@ old_eminem_stats <- old_eminem |>
     mean_dancebility = mean(danceability),
     mean_track_popularity = mean(track.popularity),
     mean_loudness = mean(loudness),
-    mean_energy = mean(energy)
+    mean_energy = mean(energy),
+    sd_tempo = sd(tempo)
   )
 ```
 
@@ -70,7 +71,8 @@ new_eminem_stats <-new_eminem |>
     mean_dancebility = mean(danceability),
     mean_track_popularity = mean(track.popularity),
     mean_loudness = mean(loudness),
-    mean_energy = mean(energy)
+    mean_energy = mean(energy),
+    sd_tempo = sd(tempo)
   )
 ```
 
@@ -89,7 +91,8 @@ mix_eminem_stats <-mix_eminem |>
     median_liveness = median(liveness),
     mad_speechiness = mad(speechiness),
     mad_acousticness = mad(acousticness),
-    mad_liveness = mad(liveness)
+    mad_liveness = mad(liveness),
+    sd_tempo = sd(tempo)
   )
 ```
 
@@ -189,6 +192,13 @@ key_templates <-
   )
 ```
 
+### Histogram of keys
+
+```{r, echo=FALSE}
+ggplot(all_eminem, aes(x = key_mode, fill = category)) +
+  geom_bar(position = "dodge")
+```
+
 
 ### Track-level Summaries
 ```{r, echo=FALSE}
@@ -197,6 +207,7 @@ old_em <-
     "thesoundsofspotify",
     "5PBz3jgj5iuA3PiuTVGsxG"
   ) |>
+  slice(30:59) |>
   add_audio_analysis()
 
 new_em <-
@@ -204,6 +215,7 @@ new_em <-
     "thesoundsofspotify",
     "0v811iPSKNOI5mbNaOWz6D"
   ) |>
+  slice(61:90) |>
   add_audio_analysis()
 
 mix_em <-
