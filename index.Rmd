@@ -192,7 +192,7 @@ key_templates <-
   )
 ```
 
-### Histogram of keys
+### Bar graph of keys
 
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x = key_mode, fill = category)) +
