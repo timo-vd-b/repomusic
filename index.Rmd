@@ -203,7 +203,12 @@ ggplot(all_eminem, aes(x = key_mode, fill = category)) +
 
 ---
 
-Some commentary about the graph
+Looking at this chart, most New Eminem songs have a C# major (D flat major) key, and most Old Eminem songs have an E minor key.
+
+The different keys in which a song can be played also bring different emotions. Emotions often associated with the D flat major key are "Grief & Depressive". For an E minor key, the emotions are often "Effeminate, Amorous, Restless". The emotions that New Eminem tries to convey in his music seem to match the emotions associated with the D flat major key. His music has become more and more about sad and political events in the world and about mental problems. Old Eminem's songs were a lot more playful and upbeat; he had many songs about his daughter and wife, drugs and the rap game that often conveyed a somewhat insecure but positive mood (although certainly not always positive). These emotions do not correspond directly to the associated emotions of an E minor key, but are close.
+
+A few things I still want to improve on this graph:
+- The y-axis now shows the count of songs. I want to make this a percentage. There are a lot more New Eminem songs than Old Eminem.
 
 ### Track-level Summaries
 ```{r, echo=FALSE}
