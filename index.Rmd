@@ -102,7 +102,7 @@ all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_emine
 ```
 
 
-# Newest tab first {.storyboard}
+# Homework Week 10 {.storyboard}
 
 ```{r, echo=FALSE}
 circshift <- function(v, n) {
@@ -196,9 +196,14 @@ key_templates <-
 
 ```{r, echo=FALSE}
 ggplot(all_eminem, aes(x = key_mode, fill = category)) +
-  geom_bar(position = "dodge")
+  geom_bar(position = "dodge")+
+  theme(axis.text.x = element_text(angle =-90))+
+  ggtitle("Difference in key usage")
 ```
 
+---
+
+Some commentary about the graph
 
 ### Track-level Summaries
 ```{r, echo=FALSE}
