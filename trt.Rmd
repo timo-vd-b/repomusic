@@ -1,0 +1,76 @@
+---
+title: "Try"
+author: "Timo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, results = 'hide'}
+library(tidyverse)
+library(spotifyr)
+library(compmus)
+```
+
+
+```{r}
+violet <-
+  get_tidy_audio_analysis("5KyuddPRTSgiwk7zGO1hvE") |>
+  select(segments) |>
+  unnest(segments)
+```
+
+
+
+```{r}
+violet |>
+  mutate(loudness_max_time = start + loudness_max_time) |>
+  arrange(loudness_max_time) |>
+  mutate(delta_loudness = loudness_max - lag(loudness_max)) |>
+  ggplot(aes(x = loudness_max_time, y = pmax(0, delta_loudness))) +
+  geom_line() +
+  xlim(10, 50) +
+  theme_minimal() +
+  labs(x = "Time (s)", y = "Novelty")
+```
+
+
+```{r}
+violet |>
+  mutate(pitches = map(pitches, compmus_normalise, "clr")) |>
+  arrange(start) |>
+  mutate(pitches = map2(pitches, lag(pitches), `-`)) |>
+  slice(-1) |> 
+  compmus_gather_chroma() |> 
+  group_by(start, duration) |> 
+  summarise(novelty = sum(log1p(pmax(value, 0)))) |> 
+  ggplot(aes(x = start + duration / 2, y = novelty)) +
+  geom_line() +
+  xlim(0, 30) +
+  theme_minimal() +
+  labs(x = "Time (s)", y = "Novelty")
+```
+
+
+```{r}
+violets_tale <- get_tidy_audio_analysis("5KyuddPRTSgiwk7zGO1hvE")
+```
+
+```{r}
+violets_tale |>
+  tempogram(window_size = 4, hop_size = 2, cyclic = FALSE) |>
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+```
+
+
+
+
+
+

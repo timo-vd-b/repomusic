@@ -101,6 +101,12 @@ mix_eminem_stats <-mix_eminem |>
 all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_eminem |> mutate(category = "New Eminem"))
 ```
 
+# Homework week 11
+
+```{r}
+knitr::include_graphics("lose_yourself_tempogram.png")
+```
+
 
 # Homework Week 10 {.storyboard}
 
