@@ -105,7 +105,7 @@ all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_emine
 
 ### Tempogram Lose Yourself
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("lose_yourself_tempogram.png")
 ```
 
