@@ -101,12 +101,29 @@ mix_eminem_stats <-mix_eminem |>
 all_eminem <- bind_rows(old_eminem |> mutate(category = "Old Eminem"), new_eminem |> mutate(category = "New Eminem"))
 ```
 
-# Homework week 11
+# Homework week 11 {.storyboard}
+
+### Tempogram Lose Yourself
 
 ```{r}
 knitr::include_graphics("lose_yourself_tempogram.png")
 ```
 
+---
+
+In this tempogram you can clearly recognize 4 different parts of the song:
+- The first thirty seconds of this song are a piano intro.
+- Then from the thirty seconds the beat starts, which is clearly visible in the tempogram by an increase in the BPM.
+- From second 53 to 278 Eminem raps over the beat. You can see this in the tempogram as the blurring of what the exact BPM is. However, the computer still manages to find a reasonably straight line.
+- After second 278 the outro of the song starts with the beat extending for another 42 seconds. The start of the outro is clearly visible by the BPM line becoming brighter again.
+
+A few things I still want to improve:
+- Computer was very slow, so I used window_size = 4 and hop_size = 1 for this tempogram. I want to add a sharper version for the final portfolio.
+- I also want to add a tempogram for the other two outliers of my corpus (Campaign Speech & Jimmy, Brian and Mike).
+
+### Tempogram Campaign Speech
+
+### Tempogram Jimmy, Brian and Mike
 
 # Homework Week 10 {.storyboard}
 
