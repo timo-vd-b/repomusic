@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
+    self_contained: false
     theme:
       version: 4
       bootswatch: minty
@@ -107,6 +108,8 @@ This study explores the differences in the music of Eminem, one of the most infl
 Within this corpus, the study takes a closer look at three specific songs: "The Real Slim Shady," "Darkness," and "Jimmy Brian and Mike." "The Real Slim Shady" was released in 2000 and is considered a classic example of old Eminem's shock value rap style. "Darkness", released in 2020, represents Eminem's more political approach to rap with many double entenders."Jimmy Brian and Mike", a more recent release, is a combination of the old and new Eminem. He recorded part of this song around the year 2000 and then recorded the rest of the song in 2022.
 
 The purpose of this research is to compare the differences in Eminem's music in these two different periods. It is expected that there will be changes in the themes and subject matter of the rap lyrics, as well as differences in the musical elements, such as tempo, energy, and mood. However, it is also expected that Eminem's signature style of clear delivery has remained the same. Through the three tracks selected for this research, which represent a cross-section of Eminem's discography, we hope to gain an even better understanding of how Eminem's music has changed over time.
+
+***
 
 # Homework week 11 {.storyboard}
 
@@ -361,16 +364,6 @@ This is a sidebar to give an overview of the story.
 
 For now its just text; input controls are next.
 
-# Welcome to musicology {data-navmenu="Random plots"}
-
-#### Even smaller heading
-
-This is a list:
-
--   hi
--   second
--   third
--   fourth
 
 # Histograms {data-navmenu="Random plots".storyboard}
 
@@ -412,7 +405,7 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = valence, color = catego
   ggtitle("The change in valence of Eminem's music over the years")
 ```
 
-***
+---
 test for text?
 
 
@@ -430,10 +423,5 @@ ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = ca
   theme(axis.text.x = element_text(angle =-90))
 ```
 
-# Make a last page
+# Discussion
 
-```{r, echo=FALSE}
-first_plot <- ggplot(all_eminem, aes(x = track.album.release_date, y = speechiness, color = category, size = track.popularity))+
-  geom_point()+
-  theme(axis.text.x = element_text(angle =-90))
-```
